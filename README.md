@@ -1,63 +1,118 @@
 🚀 Tasty Hub App
 
-A full-stack web application built using:
+A full-stack web application built to practice real-world DevOps implementation including containerization, CI/CD, and cloud deployment.
 
-Frontend: React
+📌 Overview
 
-Backend: Node.js + Express
+Tasty Hub is a full-stack application built using modern web technologies.
+While the app is fully functional, its primary purpose is to serve as a DevOps practice project for implementing production-grade deployment workflows.
 
-Database: MySQL
-
-This project is primarily used as a DevOps practice application for implementing modern deployment and infrastructure workflows.
-
-🎯 Project Goal
-
-Although this is a functional web application, the main objective is:
-
-Containerization using Docker
-
-Multi-container setup using Docker Compose
-
-CI/CD pipeline implementation
-
-Deployment to Cloud (AWS)
-
-Infrastructure as Code (Future scope)
-
-Kubernetes orchestration (Planned)
-
+🏗️ Architecture
+React (Frontend)
+        ↓
+Node.js + Express (Backend API)
+        ↓
+MySQL (Database)
 🛠️ Tech Stack
+Frontend
 
 React
 
+Backend
+
 Node.js
 
-Express
+Express.js
+
+Database
 
 MySQL
 
-Git & GitHub
+DevOps & Tools
+
+Git
+
+GitHub
 
 Docker (Planned)
+
+Docker Compose (Planned)
 
 AWS (Planned)
 
 Kubernetes (Planned)
 
-📦 Future DevOps Implementation Plan
+🎯 Project Objective (DevOps Focus)
+
+This project is used to implement and demonstrate:
+
+🐳 Application Containerization using Docker
+
+📦 Multi-container architecture with Docker Compose
+
+🔁 CI/CD pipeline setup
+
+☁ Cloud deployment on AWS
+
+🏗 Infrastructure as Code (future scope)
+
+☸ Kubernetes orchestration
+
+🚀 DevOps Implementation Roadmap
+Phase 1 – Containerization
 
  Create Dockerfile for frontend
 
  Create Dockerfile for backend
 
- Add docker-compose.yml
+ Configure MySQL container
 
- Push Docker images to Docker Hub
+ Setup docker-compose.yml
 
- Setup GitHub Actions CI/CD
+Phase 2 – CI/CD
+
+ Configure GitHub Actions workflow
+
+ Automated build & test pipeline
+
+ Docker image build & push
+
+Phase 3 – Cloud Deployment
 
  Deploy on AWS EC2
 
  Setup Nginx reverse proxy
 
- Kubernetes deployment (EKS)
+ Configure environment variables
+
+ Setup SSL (HTTPS)
+
+Phase 4 – Kubernetes
+
+ Create Kubernetes manifests
+
+ Deploy to EKS
+
+ Configure services & ingress
+
+💡 Why This Project?
+
+This repository is designed to simulate a real-world production workflow where:
+
+Developers build the application
+
+DevOps engineers containerize and deploy it
+
+CI/CD pipelines automate the process
+
+Cloud infrastructure handles scaling
+
+📈 Future Enhancements
+
+Monitoring with Prometheus & Grafana
+
+Logging with ELK Stack
+
+Terraform for Infrastructure as Code
+
+Blue-Green / Rolling Deployments
