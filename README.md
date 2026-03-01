@@ -146,7 +146,7 @@ tasty-hub/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/tasty-hub.git
+git clone https://github.com/Chandangadewar/tasty-hub.git
 cd tasty-hub
 ```
 
@@ -293,3 +293,4 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 > ⭐ If you find this project helpful, please give it a star! It helps others discover it.
+
