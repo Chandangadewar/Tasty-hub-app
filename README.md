@@ -62,16 +62,12 @@ The application is intentionally built to mirror a **real-world production syste
 ### DevOps (Implemented / Planned)
 | Tool | Status | Purpose |
 |---|---|---|
-| Git & GitHub | ✅ Done | Version Control |
-| Docker | 🔄 In Progress | Containerization |
-| Docker Compose | 🔄 In Progress | Multi-container Setup |
-| GitHub Actions | 📋 Planned | CI/CD Pipeline |
-| AWS EC2 | 📋 Planned | Cloud Deployment |
-| Nginx | 📋 Planned | Reverse Proxy |
-| AWS EKS | 📋 Planned | Kubernetes Orchestration |
-| Terraform | 📋 Planned | Infrastructure as Code |
-| Datadog | 📋 Planned | Monitoring & Observability |
-
+| Docker | ✅ Files Ready | Containerization |
+| Docker Compose | ✅ Files Ready | Multi-container Setup |
+| GitHub Actions | ✅ Files Ready | CI/CD Pipeline |
+| Nginx | ✅ Files Ready | Reverse Proxy |
+| Terraform | ✅ Files Ready | Infrastructure as Code |
+| AWS EKS | ✅ Files Ready | Kubernetes Orchestration |
 ---
 
 ## ✨ Application Features
@@ -293,4 +289,5 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 > ⭐ If you find this project helpful, please give it a star! It helps others discover it.
+
 
