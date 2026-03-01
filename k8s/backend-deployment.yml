@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: tastyhub
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: YOURDOCKERHUB/tastyhub-backend:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_HOST
+              value: mysql
+            - name: DB_USER
+              value: root
+            - name: DB_NAME
+              value: restaurant_db
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tastyhub-secrets
+                  key: DB_PASSWORD
+            - name: SESSION_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: tastyhub-secrets
+                  key: SESSION_SECRET
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: tastyhub
+spec:
+  selector:
+    app: backend
+  ports:
+    - port: 5000
+      targetPort: 5000

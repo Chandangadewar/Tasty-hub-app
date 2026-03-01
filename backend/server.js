@@ -1,3 +1,14 @@
+// Datadogs file
+
+if (process.env.DD_API_KEY) {
+  require('dd-trace').init({
+    service: 'tastyhub-backend',
+    env: process.env.NODE_ENV || 'production',
+    version: '1.0.0'
+  });
+}
+
+// Server File
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
