@@ -1,10 +1,10 @@
 # Stage 1 - Build React App
-FROM node:18-alpine AS builder
+FROM node:18 AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --legacy-peer-deps --ignore-scripts
-RUN npm install react-scripts --legacy-peer-deps
+RUN npm ci --legacy-peer-deps
 COPY . .
+ENV CI=false
 RUN npm run build
 
 # Stage 2 - Serve with Nginx
