@@ -24,7 +24,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./backend
-          dockerfile: ./docker/backend/Dockerfile
+          file: ./docker/backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/tastyhub-backend:latest
 
@@ -32,6 +32,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./frontend
-          dockerfile: ./docker/frontend/Dockerfile
+          file: ./docker/frontend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/tastyhub-frontend:latest
