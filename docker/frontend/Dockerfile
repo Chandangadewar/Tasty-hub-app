@@ -3,11 +3,9 @@ FROM node:18 AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
-RUN ./node_modules/.bin/react-scripts --version
 COPY . .
 ENV CI=false
-ENV PATH /app/node_modules/.bin:$PATH
-RUN react-scripts build
+RUN ./node_modules/.bin/react-scripts build
 
 # Stage 2 - Serve with Nginx
 FROM nginx:alpine
