@@ -1,9 +1,9 @@
 # Stage 1 - Build React App
 FROM node:18-alpine AS builder
 WORKDIR /app
-RUN chmod 777 /app
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install --legacy-peer-deps --ignore-scripts
+RUN npm install react-scripts --legacy-peer-deps
 COPY . .
 RUN npm run build
 
