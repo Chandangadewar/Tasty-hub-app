@@ -2,10 +2,12 @@
 FROM node:18 AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --legacy-peer-deps
+RUN npm install --legacy-peer-deps
+RUN ./node_modules/.bin/react-scripts --version
 COPY . .
 ENV CI=false
-RUN npm run build
+ENV PATH /app/node_modules/.bin:$PATH
+RUN react-scripts build
 
 # Stage 2 - Serve with Nginx
 FROM nginx:alpine
