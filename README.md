@@ -3,7 +3,7 @@
 ![React](https://img.shields.io/badge/React-18.2-61DAFB?style=flat&logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat&logo=node.js)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql)
-![Docker](https://img.shields.io/badge/Docker-Planned-2496ED?style=flat&logo=docker)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat&logo=docker)
 ![AWS](https://img.shields.io/badge/AWS-Planned-FF9900?style=flat&logo=amazonaws)
 
 > A production-ready full-stack food ordering web application, built as a **DevOps practice project** to implement real-world containerization, CI/CD pipelines, and cloud deployment workflows.
@@ -201,13 +201,12 @@ npm start
 - [x] Pushed to GitHub with proper project structure
 
 ### 🔄 Phase 1 — Containerization (In Progress)
-- [ ] Write `Dockerfile` for React frontend
-- [ ] Write `Dockerfile` for Node.js backend
-- [ ] Configure MySQL container with init scripts
-- [ ] Write `docker-compose.yml` for full stack
+- [x] Write `Dockerfile` for React frontend
+- [x] Write `Dockerfile` for Node.js backend
+- [x] Configure MySQL container with init scripts
+- [x] Write `docker-compose.yml` for full stack
 - [ ] Test multi-container setup locally
 - [ ] Push Docker images to Docker Hub
-
 ### 📋 Phase 2 — CI/CD Pipeline
 - [ ] Setup GitHub Actions workflow
 - [ ] Automated testing on pull requests
@@ -289,5 +288,6 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 > ⭐ If you find this project helpful, please give it a star! It helps others discover it.
+
 
 
