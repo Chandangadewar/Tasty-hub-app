@@ -207,11 +207,10 @@ npm start
 - [x] Write `docker-compose.yml` for full stack
 - [ ] Test multi-container setup locally
 - [ ] Push Docker images to Docker Hub
-### 📋 Phase 2 — CI/CD Pipeline
-- [ ] Setup GitHub Actions workflow
-- [ ] Automated testing on pull requests
-- [ ] Auto build & push Docker images on merge to main
-- [ ] Environment-based deployment triggers
+### ✅ Phase 2 — CI/CD Pipeline (Complete)
+- [x] Setup GitHub Actions workflow
+- [x] Auto build Docker images on push
+- [x] Push images to Docker Hub
 
 ### 📋 Phase 3 — Cloud Deployment (AWS)
 - [ ] Launch AWS EC2 instance
@@ -288,6 +287,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 > ⭐ If you find this project helpful, please give it a star! It helps others discover it.
+
 
 
 
