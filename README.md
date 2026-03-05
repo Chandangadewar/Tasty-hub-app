@@ -264,7 +264,7 @@ npm start
 ---
 
 ## 🔒 Security Implementation
-- Passwords hashed with **bcrypt** (10 salt rounds)
+- Passwords hashed with **bcryptjs** (10 salt rounds)
 - Admin routes protected by **session middleware**
 - Session cookies are **httpOnly** (not accessible via JS)
 - SQL injection prevention via **parameterized queries**
@@ -288,6 +288,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 > ⭐ If you find this project helpful, please give it a star! It helps others discover it.
+
 
 
 
