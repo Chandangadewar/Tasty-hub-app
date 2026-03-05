@@ -68,6 +68,7 @@ The application is intentionally built to mirror a **real-world production syste
 | Nginx | ✅ Files Ready | Reverse Proxy |
 | Terraform | ✅ Files Ready | Infrastructure as Code |
 | AWS EKS | ✅ Files Ready | Kubernetes Orchestration |
+| Prometheus + Grafana | 📋 Planned | Monitoring & Observability |
 ---
 
 ## ✨ Application Features
@@ -200,13 +201,13 @@ npm start
 - [x] Form validation on frontend and backend
 - [x] Pushed to GitHub with proper project structure
 
-### 🔄 Phase 1 — Containerization (In Progress)
+### ✅ Phase 1 — Containerization (Complete)
 - [x] Write `Dockerfile` for React frontend
 - [x] Write `Dockerfile` for Node.js backend
 - [x] Configure MySQL container with init scripts
 - [x] Write `docker-compose.yml` for full stack
-- [ ] Test multi-container setup locally
-- [ ] Push Docker images to Docker Hub
+- [x] Test multi-container setup locally
+- [x] Push Docker images to Docker Hub
 ### ✅ Phase 2 — CI/CD Pipeline (Complete)
 - [x] Setup GitHub Actions workflow
 - [x] Auto build Docker images on push
@@ -227,9 +228,9 @@ npm start
 - [ ] Setup Horizontal Pod Autoscaler
 
 ### 📋 Phase 5 — Monitoring & Observability
-- [ ] Integrate Datadog agent
-- [ ] Setup application performance monitoring
-- [ ] Create dashboards for key metrics
+- [ ] Setup Prometheus metrics in Node.js backend
+- [ ] Configure Prometheus scraping
+- [ ] Setup Grafana dashboards
 - [ ] Configure alerts
 - [ ] Setup log aggregation
 
@@ -287,6 +288,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 > ⭐ If you find this project helpful, please give it a star! It helps others discover it.
+
 
 
 
