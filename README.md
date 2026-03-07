@@ -4,13 +4,13 @@
 ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat&logo=node.js)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat&logo=docker)
-![AWS](https://img.shields.io/badge/AWS-Planned-FF9900?style=flat&logo=amazonaws)
+![AWS](https://img.shields.io/badge/AWS-EC2%20Deployed-FF9900?style=flat&logo=amazonaws)
 
 > A production-ready full-stack food ordering web application, built as a **DevOps practice project** to implement real-world containerization, CI/CD pipelines, and cloud deployment workflows.
 
 ---
 
-## 🌐 Live Demo## 🌐 Live Demo
+## 🌐 Live Demo
 > ✅ Deployed on AWS EC2 (t2.micro)
 > 💡 EC2 instance stopped when not in use to avoid AWS charges
 > 🐳 Run locally instantly using Docker — see setup below
@@ -98,40 +98,24 @@ The application is intentionally built to mirror a **real-world production syste
 
 ```
 tasty-hub/
-├── database.sql                  # MySQL schema & seed data
+├── database.sql
 ├── README.md
-├── backend/                      # Node.js API Server
-│   ├── server.js                 # Express app entry point
-│   ├── .env                      # Environment variables
-│   ├── package.json
-│   ├── config/
-│   │   └── db.js                 # MySQL connection pool
-│   ├── middleware/
-│   │   └── auth.js               # Session auth middleware
-│   └── routes/
-│       ├── bookings.js           # Order CRUD routes
-│       └── admin.js              # Admin auth & stats routes
-└── frontend/                     # React Application
-    ├── package.json
-    ├── public/
-    │   └── index.html
-    └── src/
-        ├── App.js                # Root component & routes
-        ├── index.js
-        ├── context/
-        │   └── AdminContext.js   # Global admin auth state
-        ├── components/
-        │   ├── Navbar.js
-        │   └── Footer.js
-        └── pages/
-            ├── Home.js
-            ├── About.js
-            ├── Services.js
-            ├── BookOrder.js
-            ├── Success.js
-            ├── Contact.js
-            ├── AdminLogin.js
-            └── AdminDashboard.js
+├── .env.example
+├── backend/
+├── frontend/
+├── docker/
+│   ├── docker-compose.yml
+│   ├── backend/Dockerfile
+│   └── frontend/
+│       ├── Dockerfile
+│       └── nginx.conf
+├── .github/workflows/
+│   ├── build-push.yml
+│   └── deploy.yml
+├── k8s/
+├── nginx/
+└── terraform/
+```
 ```
 
 ---
@@ -184,11 +168,24 @@ npm install
 npm start
 # App running on http://localhost:3000
 ```
+## 🐳 Docker Setup (Recommended)
+
+### Prerequisites
+- Docker Desktop installed
+
+### Run with Docker
+```bash
+git clone https://github.com/Chandangadewar/Tasty-hub-app.git
+cd Tasty-hub-app/docker
+docker-compose up -d
+```
+Visit http://localhost ✅
+
 
 ### Admin Access
 | Field | Value |
 |---|---|
-| URL | http://localhost:3000/admin/login |
+| URL | http://localhost/admin/login |
 | Username | admin |
 | Password | admin123 |
 
@@ -215,11 +212,11 @@ npm start
 - [x] Auto build Docker images on push
 - [x] Push images to Docker Hub
 
-### 📋 Phase 3 — Cloud Deployment (AWS)
-- [ ] Launch AWS EC2 instance
-- [ ] Install Docker on EC2
-- [ ] Setup Nginx as reverse proxy
-- [ ] Configure environment variables securely
+### ✅ Phase 3 — Cloud Deployment (Complete)
+- [x] Launch AWS EC2 instance
+- [x] Install Docker on EC2
+- [x] Pull images from Docker Hub
+- [x] App deployed on AWS EC2
 - [ ] Setup SSL/HTTPS with Let's Encrypt
 - [ ] Point custom domain
 
@@ -290,6 +287,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 > ⭐ If you find this project helpful, please give it a star! It helps others discover it.
+
 
 
 
