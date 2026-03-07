@@ -64,10 +64,11 @@ The application is intentionally built to mirror a **real-world production syste
 ### DevOps (Implemented / Planned)
 | Tool | Status | Purpose |
 |---|---|---|
-| Docker | ✅ Files Ready | Containerization |
-| Docker Compose | ✅ Files Ready | Multi-container Setup |
-| GitHub Actions | ✅ Files Ready | CI/CD Pipeline |
-| Nginx | ✅ Files Ready | Reverse Proxy |
+| Docker | ✅ Complete | Containerization |
+| Docker Compose | ✅ Complete | Multi-container Setup |
+| GitHub Actions | ✅ Complete | CI/CD Pipeline |
+| Nginx | ✅ Complete | Reverse Proxy |
+| AWS EC2 | ✅ Complete | Cloud Deployment |
 | Terraform | ✅ Files Ready | Infrastructure as Code |
 | AWS EKS | ✅ Files Ready | Kubernetes Orchestration |
 | Prometheus + Grafana | 📋 Planned | Monitoring & Observability |
@@ -115,10 +116,6 @@ tasty-hub/
 ├── k8s/
 ├── nginx/
 └── terraform/
-```
-```
-
----
 
 ## 🚀 Local Setup & Installation
 
@@ -287,6 +284,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 > ⭐ If you find this project helpful, please give it a star! It helps others discover it.
+
 
 
 
