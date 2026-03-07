@@ -10,8 +10,10 @@
 
 ---
 
-## 🌐 Live Demo
-> 🚧 Deployment in progress — will be hosted on AWS EC2
+## 🌐 Live Demo## 🌐 Live Demo
+> ✅ Deployed on AWS EC2 (t2.micro)
+> 💡 EC2 instance stopped when not in use to avoid AWS charges
+> 🐳 Run locally instantly using Docker — see setup below
 
 ---
 
@@ -288,6 +290,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 > ⭐ If you find this project helpful, please give it a star! It helps others discover it.
+
 
 
 
