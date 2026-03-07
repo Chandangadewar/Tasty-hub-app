@@ -58,24 +58,6 @@ services:
       - backend
     networks:
       - tastyhub-network
-
-  datadog:
-    image: datadog/agent:latest
-    container_name: tastyhub-datadog
-    restart: always
-    environment:
-      DD_API_KEY: ${DD_API_KEY}
-      DD_SITE: datadoghq.com
-      DD_APM_ENABLED: "true"
-      DD_LOGS_ENABLED: "true"
-      DD_CONTAINER_EXCLUDE: "name:tastyhub-datadog"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /proc/:/host/proc/:ro
-      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
-    networks:
-      - tastyhub-network
-
 networks:
   tastyhub-network:
     driver: bridge
