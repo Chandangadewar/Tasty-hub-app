@@ -5,8 +5,10 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat&logo=docker)
 ![AWS](https://img.shields.io/badge/AWS-EC2%20Deployed-FF9900?style=flat&logo=amazonaws)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC?style=flat&logo=terraform)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-EKS-326CE5?style=flat&logo=kubernetes)
 
-> A production-ready full-stack food ordering web application, built as a **DevOps practice project** to implement real-world containerization, CI/CD pipelines, and cloud deployment workflows.
+> A production-ready full-stack food ordering web application, built as a **DevOps practice project** to implement real-world containerization, CI/CD pipelines, cloud deployment, Kubernetes orchestration, and monitoring workflows.
 
 ---
 
@@ -21,7 +23,7 @@
 
 Tasty Hub is an end-to-end food ordering platform where customers can browse the menu, place orders, and track delivery status. Restaurant admins can manage all incoming orders through a secure dashboard.
 
-The application is intentionally built to mirror a **real-world production system** — making it a perfect base for practising DevOps workflows including Docker, GitHub Actions CI/CD, AWS deployment, and Kubernetes orchestration.
+The application is intentionally built to mirror a **real-world production system** — making it a perfect base for practising DevOps workflows including Docker, GitHub Actions CI/CD, AWS deployment, Terraform IaC, Kubernetes orchestration, and Prometheus + Grafana monitoring.
 
 ---
 
@@ -33,8 +35,8 @@ The application is intentionally built to mirror a **real-world production syste
                     └────────┬────────┘
                              │
                     ┌────────▼────────┐
-                    │  React Frontend │  (Port 3000)
-                    │  (Nginx/CDN)    │
+                    │  React Frontend │  (Port 80)
+                    │  (Nginx)        │
                     └────────┬────────┘
                              │ REST API
                     ┌────────▼────────┐
@@ -61,17 +63,17 @@ The application is intentionally built to mirror a **real-world production syste
 | Auth | Express-Session + bcrypt | Admin Authentication |
 | HTTP Client | Axios | API Communication |
 
-### DevOps (Implemented / Planned)
+### DevOps
 | Tool | Status | Purpose |
 |---|---|---|
-| Docker | ✅ Complete | Containerization |
-| Docker Compose | ✅ Complete | Multi-container Setup |
+| Docker + Docker Compose | ✅ Complete | Containerization & Multi-container Setup |
 | GitHub Actions | ✅ Complete | CI/CD Pipeline |
 | Nginx | ✅ Complete | Reverse Proxy |
 | AWS EC2 | ✅ Complete | Cloud Deployment |
-| Terraform | ✅ Files Ready | Infrastructure as Code |
-| AWS EKS | ✅ Files Ready | Kubernetes Orchestration |
+| Terraform | ✅ Complete | Infrastructure as Code |
+| Kubernetes (EKS) | ✅ Complete | Container Orchestration |
 | Prometheus + Grafana | 📋 Planned | Monitoring & Observability |
+
 ---
 
 ## ✨ Application Features
@@ -114,70 +116,38 @@ tasty-hub/
 │   ├── build-push.yml
 │   └── deploy.yml
 ├── k8s/
+│   ├── namespace.yml
+│   ├── secret.yml
+│   ├── backend-deployment.yml
+│   ├── frontend-deployment.yml
+│   ├── mysql-deployment.yml
+│   └── ingress.yml
 ├── nginx/
+│   └── nginx.conf
 └── terraform/
-
-## 🚀 Local Setup & Installation
-
-### Prerequisites
-- Node.js v18+
-- MySQL 8.0
-- npm
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/Chandangadewar/tasty-hub.git
-cd tasty-hub
+    ├── main.tf
+    ├── ec2.tf
+    ├── variables.tf
+    ├── outputs.tf
+    └── security-groups.tf
 ```
 
-### 2. Setup Database
-```sql
--- Run in MySQL Workbench or CLI
-SOURCE database.sql;
-```
+---
 
-### 3. Configure Backend
-```bash
-cd backend
-npm install
-```
-
-Edit `.env`:
-```env
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=restaurant_db
-SESSION_SECRET=your_secret_key
-PORT=5000
-```
-
-### 4. Run Backend
-```bash
-npm start
-# Server running on http://localhost:5000
-```
-
-### 5. Run Frontend
-```bash
-cd ../frontend
-npm install
-npm start
-# App running on http://localhost:3000
-```
-## 🐳 Docker Setup (Recommended)
+## 🚀 Quick Start with Docker (Recommended)
 
 ### Prerequisites
 - Docker Desktop installed
 
-### Run with Docker
+### Run Locally
 ```bash
 git clone https://github.com/Chandangadewar/Tasty-hub-app.git
 cd Tasty-hub-app/docker
+cp .env.example .env        # fill in your values
 docker-compose up -d
 ```
-Visit http://localhost ✅
 
+Visit **http://localhost** ✅
 
 ### Admin Access
 | Field | Value |
@@ -188,53 +158,81 @@ Visit http://localhost ✅
 
 ---
 
+## 🖥️ Manual Local Setup
+
+### Prerequisites
+- Node.js v18+
+- MySQL 8.0
+- npm
+
+```bash
+# 1. Clone
+git clone https://github.com/Chandangadewar/Tasty-hub-app.git
+cd Tasty-hub-app
+
+# 2. Setup Database
+mysql -u root -p < database.sql
+
+# 3. Backend
+cd backend
+npm install
+# Create .env with DB credentials
+npm start        # http://localhost:5000
+
+# 4. Frontend
+cd ../frontend
+npm install
+npm start        # http://localhost:3000
+```
+
+---
+
 ## 🗺️ DevOps Implementation Roadmap
 
-### ✅ Phase 0 — Application Development (Complete)
+### ✅ Phase 0 — Application Development
 - [x] Built full-stack React + Node.js + MySQL application
 - [x] Implemented REST API with CRUD operations
 - [x] Admin authentication with bcrypt + sessions
 - [x] Form validation on frontend and backend
 - [x] Pushed to GitHub with proper project structure
 
-### ✅ Phase 1 — Containerization (Complete)
-- [x] Write `Dockerfile` for React frontend
-- [x] Write `Dockerfile` for Node.js backend
-- [x] Configure MySQL container with init scripts
-- [x] Write `docker-compose.yml` for full stack
-- [x] Test multi-container setup locally
-- [x] Push Docker images to Docker Hub
-### ✅ Phase 2 — CI/CD Pipeline (Complete)
-- [x] Setup GitHub Actions workflow
-- [x] Auto build Docker images on push
-- [x] Push images to Docker Hub
+### ✅ Phase 1 — Containerization
+- [x] Dockerfile for React frontend (multi-stage with Nginx)
+- [x] Dockerfile for Node.js backend
+- [x] MySQL container with auto-seed via init scripts
+- [x] docker-compose.yml for full stack
+- [x] Tested multi-container setup locally
+- [x] Docker images pushed to Docker Hub
 
-### ✅ Phase 3 — Cloud Deployment (Complete)
-- [x] Launch AWS EC2 instance
-- [x] Install Docker on EC2
-- [x] Pull images from Docker Hub
-- [x] App deployed on AWS EC2
-- [ ] Setup SSL/HTTPS with Let's Encrypt
-- [ ] Point custom domain
+### ✅ Phase 2 — CI/CD Pipeline
+- [x] GitHub Actions workflow (build-push.yml)
+- [x] Auto build & push Docker images on push to main
+- [x] Auto deploy to EC2 on successful build (deploy.yml)
 
-### 📋 Phase 4 — Kubernetes Orchestration
-- [ ] Write Kubernetes deployment manifests
-- [ ] Configure Services and Ingress
-- [ ] Deploy to AWS EKS cluster
-- [ ] Setup Horizontal Pod Autoscaler
+### ✅ Phase 3 — Cloud Deployment (AWS EC2)
+- [x] Launched AWS EC2 instance (t2.micro)
+- [x] Installed Docker on EC2
+- [x] Pulled images from Docker Hub
+- [x] App deployed and running on AWS EC2
+- [ ] SSL/HTTPS with Let's Encrypt
+- [ ] Custom domain
+
+### ✅ Phase 4 — Infrastructure as Code (Terraform)
+- [x] EC2 instance via Terraform
+- [x] VPC, Security Groups via Terraform
+- [x] Variables and outputs configured
 
 ### 📋 Phase 5 — Monitoring & Observability
 - [ ] Setup Prometheus metrics in Node.js backend
 - [ ] Configure Prometheus scraping
 - [ ] Setup Grafana dashboards
 - [ ] Configure alerts
-- [ ] Setup log aggregation
 
-### 📋 Phase 6 — Infrastructure as Code
-- [ ] Write Terraform scripts for AWS infrastructure
-- [ ] EC2, VPC, Security Groups, RDS via Terraform
-- [ ] Remote state management with S3
-- [ ] Implement Blue-Green deployment strategy
+### ✅ Phase 6 — Kubernetes Orchestration
+- [x] Kubernetes deployment manifests
+- [x] Services and Ingress configured
+- [x] Namespace and secrets configured
+- [x] Ready for AWS EKS deployment
 
 ---
 
@@ -273,8 +271,8 @@ Visit http://localhost ✅
 **Chandan Gadewar** — Aspiring DevOps Engineer
 
 - 📧 chandangadewar24@gmail.com
-- 💼 www.linkedin.com/in/chandan-gadewar-066194258
-- 🐙 https://github.com/Chandangadewar
+- 💼 [linkedin.com/in/chandan-gadewar-066194258](https://www.linkedin.com/in/chandan-gadewar-066194258)
+- 🐙 [github.com/Chandangadewar](https://github.com/Chandangadewar)
 
 ---
 
@@ -283,13 +281,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-> ⭐ If you find this project helpful, please give it a star! It helps others discover it.
-
-
-
-
-
-
-
-
-
+> ⭐ If you find this project helpful, please give it a star!
