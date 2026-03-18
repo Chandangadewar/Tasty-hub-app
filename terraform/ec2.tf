@@ -11,12 +11,21 @@ resource "aws_instance" "tastyhub_server" {
     systemctl start docker
     systemctl enable docker
     usermod -aG docker ubuntu
+
     cd /home/ubuntu
-    git clone https://github.com/Chandangadewar
-    cd tasty-hub
-    echo "DB_PASSWORD=your_password" > .env
-    echo "SESSION_SECRET=tastyhub_secret" >> .env
-    docker-compose -f docker/docker-compose.yml up -d
+    git clone https://github.com/Chandangadewar/Tasty-hub-app.git
+    cd Tasty-hub-app/docker
+
+    cat > .env << 'ENVEOF'
+    DB_ROOT_PASSWORD=rootpassword123
+    DB_NAME=restaurant_db
+    DB_USER=tastyhub
+    DB_PASSWORD=tastyhub123
+    SESSION_SECRET=supersecretkey123
+    DD_API_KEY=dummy
+    ENVEOF
+
+    docker-compose up -d
   EOF
 
   tags = {
