@@ -22,3 +22,10 @@ Thumbs.db
 
 # Docker volumes
 docker/mysql_data/
+
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.backup
