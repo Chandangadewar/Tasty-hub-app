@@ -12,6 +12,9 @@ systemctl start docker
 systemctl enable docker
 usermod -aG docker ubuntu
 
+# Wait for docker to be fully ready
+sleep 10
+
 cd /home/ubuntu
 git clone https://github.com/Chandangadewar/Tasty-hub-app.git
 chown -R ubuntu:ubuntu /home/ubuntu/Tasty-hub-app
@@ -27,6 +30,11 @@ DOCKER_USERNAME=chandan240603
 ENVEOF
 
 cd /home/ubuntu/Tasty-hub-app/docker
+
+# Install Docker Compose V2
+curl -L "https://github.com/docker/compose/releases/download/v2.24.0/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
 docker-compose up -d
 EOF
 
