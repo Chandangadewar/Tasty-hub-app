@@ -14,17 +14,19 @@ resource "aws_instance" "tastyhub_server" {
 
     cd /home/ubuntu
     git clone https://github.com/Chandangadewar/Tasty-hub-app.git
-    cd Tasty-hub-app/docker
+    chown -R ubuntu:ubuntu /home/ubuntu/Tasty-hub-app
 
-    cat > .env << 'ENVEOF'
-    DB_ROOT_PASSWORD=rootpassword123
-    DB_NAME=restaurant_db
-    DB_USER=tastyhub
-    DB_PASSWORD=tastyhub123
-    SESSION_SECRET=supersecretkey123
-    DD_API_KEY=dummy
-    ENVEOF
+    cat > /home/ubuntu/Tasty-hub-app/docker/.env << 'ENVEOF'
+DB_ROOT_PASSWORD=rootpassword123
+DB_NAME=restaurant_db
+DB_USER=tastyhub
+DB_PASSWORD=tastyhub123
+SESSION_SECRET=supersecretkey123
+DD_API_KEY=dummy
+DOCKER_USERNAME=chandan240603
+ENVEOF
 
+    cd /home/ubuntu/Tasty-hub-app/docker
     docker-compose up -d
   EOF
 
