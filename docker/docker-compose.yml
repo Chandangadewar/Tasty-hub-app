@@ -1,5 +1,3 @@
-
-
 services:
 
   mysql:
@@ -23,9 +21,7 @@ services:
       retries: 5
 
   backend:
-    build:
-      context: ../backend
-      dockerfile: ../docker/backend/Dockerfile
+    image: chandan240603/tastyhub-backend:latest
     container_name: tastyhub-backend
     restart: always
     environment:
@@ -47,9 +43,7 @@ services:
       - tastyhub-network
 
   frontend:
-    build:
-      context: ../frontend
-      dockerfile: ../docker/frontend/Dockerfile
+    image: chandan240603/tastyhub-frontend:latest
     container_name: tastyhub-frontend
     restart: always
     ports:
@@ -58,6 +52,7 @@ services:
       - backend
     networks:
       - tastyhub-network
+
 networks:
   tastyhub-network:
     driver: bridge
