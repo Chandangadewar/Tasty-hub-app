@@ -4,7 +4,7 @@ resource "aws_instance" "tastyhub_server" {
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.tastyhub_sg.id]
 
-  user_data = <<-EOF
+user_data = <<-EOF
 #!/bin/bash
 apt-get update -y
 apt-get install -y docker.io docker-compose git
