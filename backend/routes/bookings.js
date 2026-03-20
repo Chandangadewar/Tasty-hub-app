@@ -4,8 +4,14 @@ const db = require('../config/db');
 const { isAdminAuthenticated } = require('../middleware/auth');
 const client = require('prom-client');
 
-// Get the existing gauge from registry
-const activeOrdersGauge = client.register.getSingleMetric('active_orders_total');
+// Get or create active orders gauge
+let activeOrdersGauge = client.register.getSingleMetric('active_orders_total');
+if (!activeOrdersGauge) {
+  activeOrdersGauge = new client.Gauge({
+    name: 'active_orders_total',
+    help: 'Total number of active orders'
+  });
+}
 
 // Helper to update active orders count
 async function updateActiveOrdersGauge() {
