@@ -29,6 +29,8 @@ spec:
           volumeMounts:
             - name: mysql-storage
               mountPath: /var/lib/mysql
+            - name: mysql-init
+              mountPath: /docker-entrypoint-initdb.d
           readinessProbe:
             exec:
               command: ["mysqladmin", "ping", "-h", "localhost"]
@@ -37,6 +39,12 @@ spec:
       volumes:
         - name: mysql-storage
           emptyDir: {}
+        - name: mysql-init
+          configMap:
+            name: mysql-init-sql
+            items:
+              - key: init.sql
+                path: init.sql
 ---
 apiVersion: v1
 kind: Service
