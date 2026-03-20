@@ -28,12 +28,6 @@ const httpRequestDuration = new client.Histogram({
   registers: [register]
 });
 
-const activeOrdersGauge = new client.Gauge({
-  name: 'active_orders_total',
-  help: 'Total number of active orders',
-  registers: [register]
-});
-
 // Middleware to track metrics
 app.use((req, res, next) => {
   const start = Date.now();
