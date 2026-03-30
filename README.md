@@ -1,4 +1,4 @@
-# 🍛 Tasty Hub — Full Stack Food Delivery App
+# 🍛 End-to-End DevOps CI/CD Pipeline — Full Stack Food Delivery App
 
 ![React](https://img.shields.io/badge/React-18.2-61DAFB?style=flat&logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat&logo=node.js)
